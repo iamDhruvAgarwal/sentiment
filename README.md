@@ -2,6 +2,8 @@
 
 A lightweight, modular Streamlit application that analyzes the sentiment of user input using multiple AI/ML models — including on-device inference with Ollama's LLM. Built to compare and visualize model predictions in real time.
 
+This project is developed by Dhruv Agarwal for educational and demonstration purposes.
+
 ## 🚀 Features
 
 - 🔍 **Single Text Sentiment Analysis**
