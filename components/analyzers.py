@@ -13,10 +13,13 @@ def textblob_analysis(user_input):
     blob = TextBlob(user_input)
     sentiment = blob.sentiment.polarity
     if sentiment > 0:
+        st.success("Sentiment: Positive")
         result = "pos"
     elif sentiment < 0:
+        st.warning("Sentiment: Negative")
         result = "neg"
     else:
+        st.info("Sentiment: Neutral")
         result = "Neutral"
     #st.write(f"sentiment: {sentiment:.3f}")
     return result
@@ -45,6 +48,15 @@ def naive_bayes_analysis(user_input):
     blob = TextBlob(user_input, classifier=classifier)
     result = blob.classify()
     #st.write(f"Predicted Class: {result}")
+    if result == "pos":
+        st.success("Sentiment: Positive")
+        result = "pos"
+    elif result == "neg":
+        st.warning("Sentiment: Negative")
+        result = "neg"
+    else:
+        st.info("Sentiment: Neutral")
+        result = "Neutral"
     return result
     #return result.strip()
 
@@ -55,9 +67,13 @@ def bert_analysis(user_input):
     score = result_bert['score']
     if label == "POSITIVE":
         result = (f"🙂 Positive ({score:.2%} confidence)")
+        st.success("Sentiment: Positive")
+        return result
     elif label == "NEGATIVE":
+        st.warning("Sentiment: Negative")
         result = (f"🙁 Negative ({score:.2%} confidence)")
     else:
+        st.info("Sentiment: Neutral")
         result = (f"😐 Neutral-ish? ({score:.2%} confidence)")
     #st.write("**Raw output:**", result_bert)
     return result

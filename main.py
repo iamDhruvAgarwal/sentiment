@@ -56,6 +56,8 @@ if st.button("Analyze"):
             result = ollama_sentiment_analysis(user_input)
             st.write("LLM Sentiment Prediction: ", result)
 
+
+#logic for graphing 
 def show_sentiment_chart(textblob_result, naiveBayes_result, bert_result, ollama_result):
     models = ["Textblob", "Naive Bayes", "BERT", "Ollama"]
     sentiments = [textblob_result, naiveBayes_result, bert_result, ollama_result]
